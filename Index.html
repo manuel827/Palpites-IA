@@ -1,0 +1,135 @@
+import { useState } from "react";
+
+export default function App() {
+  const [page, setPage] = useState("home");
+
+  return (
+    <div style={styles.app}>
+      {/* NAVBAR 1 (TOP) */}
+      <div style={styles.topNav}>
+        <span style={styles.logo}>
+          ⚽ SOCCER-PRO ⚽
+        </span>
+      </div>
+
+      {/* NAVBAR 2 (MENU) */}
+      <div style={styles.secondNav}>
+        <button onClick={() => setPage("home")} style={styles.navBtn}>
+          🏠 Home
+        </button>
+        <button onClick={() => setPage("social")} style={styles.navBtn}>
+          👥 Prova Social
+        </button>
+        <button onClick={() => setPage("terms")} style={styles.navBtn}>
+          📜 Termos
+        </button>
+      </div>
+
+      {/* CONTENT */}
+      <div style={styles.content}>
+        {page === "home" && (
+          <div>
+            <h2>Bem-vindo ao Soccer-Pro</h2>
+            <p>Plataforma de palpites inteligentes de futebol.</p>
+            <p>Use o botão abaixo para calcular palpites do jogo.</p>
+          </div>
+        )}
+
+        {page === "social" && (
+          <div>
+            <h2>Prova Social</h2>
+            <p>Publicações de utilizadores aparecerão aqui.</p>
+            <div style={styles.card}>🔥 João: “Ganhei 5 jogos seguidos!”</div>
+            <div style={styles.card}>⚽ Ana: “Palpites muito precisos!”</div>
+          </div>
+        )}
+
+        {page === "terms" && (
+          <div>
+            <h2>Termos de Uso</h2>
+            <p>
+              Este site fornece apenas previsões estatísticas. Não garantimos ganhos.
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* NAVBAR BOTTOM FIXA */}
+      <div style={styles.bottomNav}>
+        <button style={styles.bigButton} onClick={() => alert("Ir para calculadora de palpites")}>
+          📊 Calcular palpites do jogo
+        </button>
+      </div>
+    </div>
+  );
+}
+
+/* ESTILOS */
+const styles = {
+  app: {
+    fontFamily: "Arial",
+    paddingBottom: "90px",
+  },
+
+  topNav: {
+    background: "#111",
+    color: "white",
+    textAlign: "center",
+    padding: "12px",
+    fontSize: "20px",
+    fontWeight: "bold",
+  },
+
+  logo: {
+    letterSpacing: "2px",
+  },
+
+  secondNav: {
+    display: "flex",
+    justifyContent: "space-around",
+    background: "#222",
+    padding: "10px",
+  },
+
+  navBtn: {
+    background: "transparent",
+    color: "white",
+    border: "none",
+    fontSize: "14px",
+    cursor: "pointer",
+  },
+
+  content: {
+    padding: "20px",
+  },
+
+  card: {
+    background: "#f3f3f3",
+    padding: "10px",
+    marginTop: "10px",
+    borderRadius: "8px",
+  },
+
+  bottomNav: {
+    position: "fixed",
+    bottom: 0,
+    width: "100%",
+    background: "#111",
+    padding: "12px",
+    display: "flex",
+    justifyContent: "center",
+    borderTop: "2px solid #333",
+  },
+
+  bigButton: {
+    width: "90%",
+    padding: "15px",
+    fontSize: "16px",
+    fontWeight: "bold",
+    background: "#00c853",
+    color: "white",
+    border: "none",
+    borderRadius: "12px",
+    cursor: "pointer",
+  },
+};
