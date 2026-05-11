@@ -4,132 +4,121 @@ export default function App() {
   const [page, setPage] = useState("home");
 
   return (
-    <div style={styles.app}>
-      {/* NAVBAR 1 (TOP) */}
-      <div style={styles.topNav}>
-        <span style={styles.logo}>
+    <div className="min-h-screen bg-[#0b0f1a] text-white pb-28">
+
+      {/* NAVBAR 1 */}
+      <div className="sticky top-0 z-50 bg-[#111827] border-b border-gray-800 py-4 flex justify-center items-center shadow-lg">
+        <h1 className="text-2xl font-bold tracking-widest text-green-400">
           ⚽ SOCCER-PRO ⚽
-        </span>
+        </h1>
       </div>
 
-      {/* NAVBAR 2 (MENU) */}
-      <div style={styles.secondNav}>
-        <button onClick={() => setPage("home")} style={styles.navBtn}>
-          🏠 Home
+      {/* NAVBAR 2 */}
+      <div className="sticky top-[64px] z-40 bg-[#161d2e] border-b border-gray-700 flex justify-around items-center py-3">
+
+        <button
+          onClick={() => setPage("home")}
+          className="flex flex-col items-center text-gray-300 hover:text-green-400 transition duration-300"
+        >
+          <span className="text-xl">🏠</span>
+          <span className="text-sm">Home</span>
         </button>
-        <button onClick={() => setPage("social")} style={styles.navBtn}>
-          👥 Prova Social
+
+        <button
+          onClick={() => setPage("social")}
+          className="flex flex-col items-center text-gray-300 hover:text-green-400 transition duration-300"
+        >
+          <span className="text-xl">👥</span>
+          <span className="text-sm">Prova Social</span>
         </button>
-        <button onClick={() => setPage("terms")} style={styles.navBtn}>
-          📜 Termos
+
+        <button
+          onClick={() => setPage("terms")}
+          className="flex flex-col items-center text-gray-300 hover:text-green-400 transition duration-300"
+        >
+          <span className="text-xl">📜</span>
+          <span className="text-sm">Termos</span>
         </button>
+
       </div>
 
       {/* CONTENT */}
-      <div style={styles.content}>
+      <div className="p-5">
+
         {page === "home" && (
-          <div>
-            <h2>Bem-vindo ao Soccer-Pro</h2>
-            <p>Plataforma de palpites inteligentes de futebol.</p>
-            <p>Use o botão abaixo para calcular palpites do jogo.</p>
-          </div>
+          <>
+            <h1 className="text-3xl font-bold text-green-400 mb-4">
+              Bem-vindo ao Soccer-Pro
+            </h1>
+
+            <p className="text-gray-300 leading-7 mb-6">
+              Plataforma inteligente de palpites esportivos com
+              estatísticas, previsões e análises automáticas.
+            </p>
+
+            <div className="bg-[#161d2e] border border-gray-700 rounded-2xl p-5 mb-4 shadow-lg hover:border-green-400 transition">
+              <h3 className="text-xl font-bold text-green-400 mb-2">
+                🔥 Palpites Inteligentes
+              </h3>
+
+              <p className="text-gray-300">
+                Calcula probabilidades de vitória,
+                golos, cantos e cartões.
+              </p>
+            </div>
+
+            <div className="bg-[#161d2e] border border-gray-700 rounded-2xl p-5 shadow-lg hover:border-green-400 transition">
+              <h3 className="text-xl font-bold text-green-400 mb-2">
+                ⚽ Jogos em Tempo Real
+              </h3>
+
+              <p className="text-gray-300">
+                Receba análises automáticas com dados reais.
+              </p>
+            </div>
+          </>
         )}
 
         {page === "social" && (
-          <div>
-            <h2>Prova Social</h2>
-            <p>Publicações de utilizadores aparecerão aqui.</p>
-            <div style={styles.card}>🔥 João: “Ganhei 5 jogos seguidos!”</div>
-            <div style={styles.card}>⚽ Ana: “Palpites muito precisos!”</div>
-          </div>
+          <>
+            <h1 className="text-3xl font-bold text-green-400 mb-5">
+              Prova Social
+            </h1>
+
+            <div className="bg-[#161d2e] border border-gray-700 rounded-2xl p-4 mb-4">
+              🔥 João: “Ganhei 5 jogos seguidos!”
+            </div>
+
+            <div className="bg-[#161d2e] border border-gray-700 rounded-2xl p-4">
+              ⚽ Ana: “Palpites muito precisos!”
+            </div>
+          </>
         )}
 
         {page === "terms" && (
-          <div>
-            <h2>Termos de Uso</h2>
-            <p>
-              Este site fornece apenas previsões estatísticas. Não garantimos ganhos.
-            </p>
-          </div>
+          <>
+            <h1 className="text-3xl font-bold text-green-400 mb-5">
+              Termos de Uso
+            </h1>
+
+            <div className="bg-[#161d2e] border border-gray-700 rounded-2xl p-5 leading-7 text-gray-300">
+              Este aplicativo fornece apenas previsões estatísticas.
+              Não garantimos ganhos financeiros.
+            </div>
+          </>
         )}
+
       </div>
 
-      {/* NAVBAR BOTTOM FIXA */}
-      <div style={styles.bottomNav}>
-        <button style={styles.bigButton} onClick={() => alert("Ir para calculadora de palpites")}>
+      {/* BOTTOM NAV */}
+      <div className="fixed bottom-0 left-0 w-full bg-[#111827] border-t border-gray-800 p-4 flex justify-center z-50">
+
+        <button className="w-[92%] py-4 rounded-2xl bg-gradient-to-r from-green-500 to-emerald-400 text-white font-bold text-lg shadow-xl active:scale-95 transition">
           📊 Calcular palpites do jogo
         </button>
+
       </div>
+
     </div>
   );
 }
-
-/* ESTILOS */
-const styles = {
-  app: {
-    fontFamily: "Arial",
-    paddingBottom: "90px",
-  },
-
-  topNav: {
-    background: "#111",
-    color: "white",
-    textAlign: "center",
-    padding: "12px",
-    fontSize: "20px",
-    fontWeight: "bold",
-  },
-
-  logo: {
-    letterSpacing: "2px",
-  },
-
-  secondNav: {
-    display: "flex",
-    justifyContent: "space-around",
-    background: "#222",
-    padding: "10px",
-  },
-
-  navBtn: {
-    background: "transparent",
-    color: "white",
-    border: "none",
-    fontSize: "14px",
-    cursor: "pointer",
-  },
-
-  content: {
-    padding: "20px",
-  },
-
-  card: {
-    background: "#f3f3f3",
-    padding: "10px",
-    marginTop: "10px",
-    borderRadius: "8px",
-  },
-
-  bottomNav: {
-    position: "fixed",
-    bottom: 0,
-    width: "100%",
-    background: "#111",
-    padding: "12px",
-    display: "flex",
-    justifyContent: "center",
-    borderTop: "2px solid #333",
-  },
-
-  bigButton: {
-    width: "90%",
-    padding: "15px",
-    fontSize: "16px",
-    fontWeight: "bold",
-    background: "#00c853",
-    color: "white",
-    border: "none",
-    borderRadius: "12px",
-    cursor: "pointer",
-  },
-};
