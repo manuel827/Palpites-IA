@@ -25,11 +25,35 @@ function App(){
 
   const [page,setPage] = useState("home");
 
+  const users = [
+    "João", "Ana", "Carlos", "Miguel", "Sofia",
+    "Pedro", "Lucas", "Marcos", "Rita", "Tiago",
+    "Bruno", "David", "Inês", "Paulo", "Andreia"
+  ];
+
+  const messages = [
+    "Melhor site de previsões!",
+    "Muito preciso nos jogos!",
+    "Já acertei vários palpites!",
+    "Interface muito limpa!",
+    "Gosto das análises!",
+    "Top mesmo!",
+    "Ajuda muito nas apostas!",
+    "Sempre atualizado!",
+    "Excelente plataforma!",
+    "Funciona muito bem!",
+    "Melhor que outros sites!",
+    "Simples e eficaz!",
+    "Uso todos os dias!",
+    "Previsões muito boas!",
+    "Recomendo totalmente!"
+  ];
+
   return(
 
     <div className="min-h-screen text-white pb-28">
 
-      {/* HEADER */}
+      {/* HEADER ORIGINAL */}
       <div className="sticky top-0 z-50 bg-[#0f172a]/90 backdrop-blur-xl border-b border-white/10">
 
         <div className="flex justify-center items-center py-4">
@@ -50,39 +74,41 @@ function App(){
 
       {/* HOME */}
       {page === "home" && (
-        <div className="p-5">
-          <h1 className="text-emerald-400 font-bold text-xl">Dashboard</h1>
+        <div className="p-5 text-gray-300">
+          Dashboard
         </div>
       )}
 
-      {/* COMUNIDADE (15 PESSOAS) */}
+      {/* COMUNIDADE MELHORADA (CHAT REAL ESQUERDA/DIREITA) */}
       {page === "social" && (
 
         <div className="p-5 space-y-3">
 
-          <h1 className="text-emerald-400 font-bold mb-3">
+          <h1 className="text-emerald-400 font-bold mb-4 text-lg">
             Comunidade
           </h1>
 
-          {[
-            "João: Melhor site de previsões!",
-            "Ana: Muito preciso nos jogos!",
-            "Carlos: Já acertei vários palpites!",
-            "Miguel: Interface muito limpa!",
-            "Sofia: Gosto das análises!",
-            "Pedro: Top mesmo!",
-            "Lucas: Ajuda muito nas apostas!",
-            "Marcos: Sempre atualizado!",
-            "Rita: Excelente plataforma!",
-            "Tiago: Funciona muito bem!",
-            "Bruno: Melhor que outros sites!",
-            "David: Simples e eficaz!",
-            "Inês: Uso todos os dias!",
-            "Paulo: Previsões muito boas!",
-            "Andreia: Recomendo totalmente!"
-          ].map((msg,i)=>(
-            <div key={i} className="bg-[#111827] p-4 rounded-2xl border border-white/10">
-              {msg}
+          {messages.map((msg,i)=>(
+            <div
+              key={i}
+              className={`flex ${i % 2 === 0 ? "justify-start" : "justify-end"}`}
+            >
+
+              <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm border border-white/10
+                ${i % 2 === 0
+                  ? "bg-[#111827] rounded-tl-none"
+                  : "bg-emerald-500/10 rounded-tr-none text-right"
+                }
+              `}>
+
+                <span className="block text-xs text-gray-400 mb-1">
+                  {users[i]}
+                </span>
+
+                {msg}
+
+              </div>
+
             </div>
           ))}
 
@@ -90,40 +116,35 @@ function App(){
 
       )}
 
-      {/* TERMOS (5 PARÁGRAFOS) */}
+      {/* TERMOS MELHORADOS (VISUAL PROFISSIONAL) */}
       {page === "terms" && (
 
-        <div className="p-5 space-y-4 text-gray-300 text-sm leading-7">
+        <div className="p-5 space-y-5">
 
-          <h1 className="text-emerald-400 font-bold text-lg mb-2">
+          <h1 className="text-emerald-400 font-bold text-lg">
             Termos de Uso
           </h1>
 
-          <p>
-            As previsões fornecidas por esta plataforma são baseadas em análises estatísticas e modelos probabilísticos. Não representam resultados garantidos.
-          </p>
-
-          <p>
-            O futebol é um desporto imprevisível, e variáveis externas podem influenciar diretamente o resultado de qualquer jogo.
-          </p>
-
-          <p>
-            Nenhuma previsão deve ser interpretada como certeza absoluta de vitória, empate ou derrota.
-          </p>
-
-          <p>
-            O utilizador deve entender que qualquer decisão baseada nestas análises é feita por sua própria responsabilidade.
-          </p>
-
-          <p>
-            Esta plataforma não assume responsabilidade por perdas financeiras ou decisões tomadas com base nas previsões apresentadas.
-          </p>
+          {[
+            "As previsões são baseadas em modelos estatísticos e não garantem resultados.",
+            "O futebol é imprevisível e pode sofrer influências externas inesperadas.",
+            "Nenhum resultado deve ser interpretado como certeza absoluta.",
+            "O utilizador assume total responsabilidade pelas decisões tomadas.",
+            "A plataforma não se responsabiliza por perdas financeiras."
+          ].map((t,i)=>(
+            <div
+              key={i}
+              className="bg-[#111827] border border-white/10 rounded-2xl p-4 text-sm text-gray-300 leading-7"
+            >
+              {t}
+            </div>
+          ))}
 
         </div>
 
       )}
 
-      {/* BOTTOM */}
+      {/* BOTÃO FIXO ORIGINAL */}
       <div className="fixed bottom-0 left-0 w-full bg-[#0f172a] border-t border-white/10 p-4">
 
         <button
