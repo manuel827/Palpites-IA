@@ -6,31 +6,19 @@
 
   <title>SOCCER-PRO</title>
 
-  <!-- Tailwind -->
+  <!-- TAILWIND -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- React -->
+  <!-- REACT -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
 
-  <!-- Babel -->
+  <!-- BABEL -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- Google Font -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-    rel="stylesheet"
-  />
-
-  <style>
-    body{
-      font-family:'Poppins',sans-serif;
-    }
-  </style>
 
 </head>
 
-<body class="bg-[#060b16]">
+<body class="bg-[#0b0f1a]">
 
 <div id="root"></div>
 
@@ -46,68 +34,22 @@ function App(){
 
     <div className="min-h-screen text-white pb-32">
 
-      {/* HEADER */}
-      <div className="sticky top-0 z-50 backdrop-blur-xl bg-[#0b1220]/90 border-b border-white/10">
+      {/* HEADER PRINCIPAL */}
+      <div className="sticky top-0 z-50 bg-[#111827] border-b border-white/10">
 
-        {/* NAVBAR 1 */}
-        <div className="flex items-center justify-center py-4">
-
-          <div className="flex items-center gap-3">
-
-            <div className="w-10 h-10 rounded-full bg-green-500/20 border border-green-400 flex items-center justify-center text-xl shadow-lg shadow-green-500/20">
-              ⚽
-            </div>
-
-            <h1 className="text-2xl font-bold tracking-[3px] bg-gradient-to-r from-green-400 to-emerald-300 bg-clip-text text-transparent">
-              SOCCER-PRO
-            </h1>
-
-            <div className="w-10 h-10 rounded-full bg-green-500/20 border border-green-400 flex items-center justify-center text-xl shadow-lg shadow-green-500/20">
-              ⚽
-            </div>
-
-          </div>
-
+        <div className="flex justify-center items-center py-4">
+          <h1 className="text-2xl font-bold text-green-400 tracking-widest">
+            ⚽ SOCCER-PRO ⚽
+          </h1>
         </div>
 
-        {/* NAVBAR 2 */}
-        <div className="flex justify-around items-center py-3 border-t border-white/5 bg-[#111827]/80">
+        {/* NAVBAR */}
+        <div className="flex justify-around py-3 bg-[#0f172a] border-t border-white/5">
 
-          <button
-            onClick={()=>setPage("home")}
-            className={`flex flex-col items-center gap-1 transition-all duration-300 ${
-              page === "home"
-              ? "text-green-400 scale-105"
-              : "text-gray-400"
-            }`}
-          >
-            <span className="text-xl">🏠</span>
-            <span className="text-xs font-medium">Home</span>
-          </button>
-
-          <button
-            onClick={()=>setPage("social")}
-            className={`flex flex-col items-center gap-1 transition-all duration-300 ${
-              page === "social"
-              ? "text-green-400 scale-105"
-              : "text-gray-400"
-            }`}
-          >
-            <span className="text-xl">🔥</span>
-            <span className="text-xs font-medium">Prova Social</span>
-          </button>
-
-          <button
-            onClick={()=>setPage("terms")}
-            className={`flex flex-col items-center gap-1 transition-all duration-300 ${
-              page === "terms"
-              ? "text-green-400 scale-105"
-              : "text-gray-400"
-            }`}
-          >
-            <span className="text-xl">📜</span>
-            <span className="text-xs font-medium">Termos</span>
-          </button>
+          <button onClick={()=>setPage("home")} className="text-gray-300">🏠 Home</button>
+          <button onClick={()=>setPage("social")} className="text-gray-300">🔥 Social</button>
+          <button onClick={()=>setPage("terms")} className="text-gray-300">📜 Termos</button>
+          <button onClick={()=>setPage("calc")} className="text-gray-300">📊 Calcular</button>
 
         </div>
 
@@ -116,174 +58,29 @@ function App(){
       {/* HOME */}
       {page === "home" && (
 
-        <div className="px-5 pt-6">
+        <div className="p-5">
 
-          {/* HERO */}
-          <div className="relative overflow-hidden rounded-[30px] bg-gradient-to-br from-[#111827] to-[#1f2937] border border-white/10 p-6 shadow-2xl">
+          <h1 className="text-3xl text-green-400 font-bold mb-4">
+            Bem-vindo ao Soccer-Pro
+          </h1>
 
-            <div className="absolute -top-10 -right-10 w-40 h-40 bg-green-500/20 blur-3xl rounded-full"></div>
-
-            <div className="relative z-10">
-
-              <div className="inline-flex items-center gap-2 bg-green-500/10 border border-green-500/20 px-4 py-2 rounded-full text-green-400 text-sm mb-5">
-                ⚡ Inteligência Artificial Esportiva
-              </div>
-
-              <h1 className="text-4xl font-bold leading-tight mb-4">
-                Calcula os melhores
-                <span className="text-green-400"> palpites </span>
-                automaticamente
-              </h1>
-
-              <p className="text-gray-400 leading-7 text-[15px]">
-                Plataforma profissional com análises de jogos,
-                estatísticas avançadas, probabilidades de vitória,
-                golos, escanteios e cartões.
-              </p>
-
-            </div>
-
-          </div>
-
-          {/* STATS */}
-          <div className="grid grid-cols-3 gap-3 mt-5">
-
-            <div className="bg-[#111827] border border-white/10 rounded-2xl p-4 text-center">
-              <h2 className="text-2xl font-bold text-green-400">95%</h2>
-              <p className="text-gray-400 text-xs mt-1">
-                Precisão
-              </p>
-            </div>
-
-            <div className="bg-[#111827] border border-white/10 rounded-2xl p-4 text-center">
-              <h2 className="text-2xl font-bold text-green-400">+50K</h2>
-              <p className="text-gray-400 text-xs mt-1">
-                Utilizadores
-              </p>
-            </div>
-
-            <div className="bg-[#111827] border border-white/10 rounded-2xl p-4 text-center">
-              <h2 className="text-2xl font-bold text-green-400">24H</h2>
-              <p className="text-gray-400 text-xs mt-1">
-                Atualizações
-              </p>
-            </div>
-
-          </div>
-
-          {/* FEATURES */}
-          <div className="mt-6 space-y-4">
-
-            <div className="bg-[#111827] border border-white/10 rounded-3xl p-5 shadow-lg">
-
-              <div className="flex items-start gap-4">
-
-                <div className="w-14 h-14 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-2xl">
-                  📊
-                </div>
-
-                <div>
-
-                  <h3 className="text-lg font-semibold mb-2">
-                    Probabilidades Inteligentes
-                  </h3>
-
-                  <p className="text-gray-400 text-sm leading-6">
-                    Calcula automaticamente vitórias,
-                    golos, cantos e cartões com base
-                    em estatísticas reais.
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-            <div className="bg-[#111827] border border-white/10 rounded-3xl p-5 shadow-lg">
-
-              <div className="flex items-start gap-4">
-
-                <div className="w-14 h-14 rounded-2xl bg-green-500/10 border border-green-500/20 flex items-center justify-center text-2xl">
-                  ⚽
-                </div>
-
-                <div>
-
-                  <h3 className="text-lg font-semibold mb-2">
-                    Jogos em Tempo Real
-                  </h3>
-
-                  <p className="text-gray-400 text-sm leading-6">
-                    Dados esportivos atualizados automaticamente
-                    para gerar previsões profissionais.
-                  </p>
-
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
+          <p className="text-gray-400">
+            Plataforma de palpites inteligentes com análise estatística.
+          </p>
 
         </div>
 
       )}
 
-      {/* PROVA SOCIAL */}
+      {/* SOCIAL */}
       {page === "social" && (
 
-        <div className="p-5 space-y-4">
+        <div className="p-5 space-y-3">
 
-          <h1 className="text-3xl font-bold">
-            Prova Social
-          </h1>
+          <h1 className="text-2xl text-green-400">Prova Social</h1>
 
-          <div className="bg-[#111827] border border-white/10 rounded-3xl p-5">
-
-            <div className="flex items-center gap-3 mb-3">
-
-              <div className="w-12 h-12 rounded-full bg-green-500 flex items-center justify-center font-bold">
-                J
-              </div>
-
-              <div>
-                <h2 className="font-semibold">João Pedro</h2>
-                <p className="text-gray-500 text-sm">
-                  há 2 horas
-                </p>
-              </div>
-
-            </div>
-
-            <p className="text-gray-300 leading-7">
-              Acertei 5 jogos seguidos usando os cálculos do Soccer-Pro 🔥
-            </p>
-
-          </div>
-
-          <div className="bg-[#111827] border border-white/10 rounded-3xl p-5">
-
-            <div className="flex items-center gap-3 mb-3">
-
-              <div className="w-12 h-12 rounded-full bg-emerald-500 flex items-center justify-center font-bold">
-                A
-              </div>
-
-              <div>
-                <h2 className="font-semibold">Ana Silva</h2>
-                <p className="text-gray-500 text-sm">
-                  há 5 horas
-                </p>
-              </div>
-
-            </div>
-
-            <p className="text-gray-300 leading-7">
-              Interface linda e palpites muito precisos ⚽
-            </p>
-
+          <div className="bg-[#111827] p-4 rounded-xl border border-white/10">
+            🔥 João: Ganhei 5 jogos seguidos
           </div>
 
         </div>
@@ -295,42 +92,105 @@ function App(){
 
         <div className="p-5">
 
-          <div className="bg-[#111827] border border-white/10 rounded-3xl p-6">
+          <h1 className="text-2xl text-green-400 mb-3">Termos</h1>
 
-            <h1 className="text-3xl font-bold mb-5">
-              Termos de Uso
-            </h1>
+          <p className="text-gray-400">
+            Este site fornece apenas previsões estatísticas.
+          </p>
 
-            <p className="text-gray-400 leading-8 text-[15px]">
-              O Soccer-Pro fornece análises estatísticas e previsões
-              esportivas apenas para fins informativos. Não garantimos
-              ganhos financeiros nem resultados específicos em apostas.
-            </p>
+        </div>
 
+      )}
+
+      {/* CALCULAR PALPITE */}
+      {page === "calc" && (
+
+        <div className="p-5 space-y-5">
+
+          <h1 className="text-3xl text-green-400 font-bold">
+            📊 Calcular Palpite do Jogo
+          </h1>
+
+          <p className="text-gray-400">
+            Insere as equipas para gerar análise automática.
+          </p>
+
+          {/* INPUTS */}
+          <input
+            id="teamA"
+            placeholder="Equipa A"
+            className="w-full p-4 rounded-xl bg-[#111827] border border-white/10"
+          />
+
+          <input
+            id="teamB"
+            placeholder="Equipa B"
+            className="w-full p-4 rounded-xl bg-[#111827] border border-white/10"
+          />
+
+          {/* BOTÃO */}
+          <button
+            onClick={async ()=>{
+
+              const teamA = document.getElementById("teamA").value;
+              const teamB = document.getElementById("teamB").value;
+
+              if(!teamA || !teamB){
+                alert("Preenche as duas equipas");
+                return;
+              }
+
+              try{
+
+                const res = await fetch(
+                  `https://sua-api.com/palpites?teamA=${teamA}&teamB=${teamB}`
+                );
+
+                const data = await res.json();
+
+                document.getElementById("result").innerHTML =
+                  JSON.stringify(data,null,2);
+
+              }catch(e){
+                document.getElementById("result").innerHTML =
+                  "Erro na API ❌";
+              }
+
+            }}
+
+            className="w-full py-4 rounded-xl bg-green-500 font-bold text-lg"
+          >
+            📊 Calcular Palpite
+          </button>
+
+          {/* RESULTADO */}
+          <div
+            id="result"
+            className="bg-[#111827] p-4 rounded-xl border border-white/10 text-gray-300 whitespace-pre-wrap"
+          >
+            Resultado da API aparecerá aqui...
           </div>
 
         </div>
 
       )}
 
-      {/* BOTTOM BUTTON */}
-      <div className="fixed bottom-0 left-0 w-full p-4 backdrop-blur-xl bg-[#0b1220]/90 border-t border-white/10 z-50">
+      {/* BOTÃO FIXO */}
+      <div className="fixed bottom-0 left-0 w-full bg-[#111827] p-4 border-t border-white/10">
 
-        <button className="w-full py-5 rounded-[22px] bg-gradient-to-r from-green-500 to-emerald-400 text-white text-lg font-bold shadow-2xl shadow-green-500/20 active:scale-95 transition-all duration-300">
-
+        <button className="w-full py-4 bg-gradient-to-r from-green-500 to-emerald-400 rounded-xl font-bold">
           📊 Calcular palpites do jogo
-
         </button>
 
       </div>
 
     </div>
 
-  )
+  );
 
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />)
+ReactDOM.createRoot(document.getElementById("root")).render(<App/>);
 
 </script>
 
