@@ -1,0 +1,175 @@
+/* RESET */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: Arial, Helvetica, sans-serif;
+  background:#0b0f1a;
+  color:white;
+}
+
+/* APP */
+.app{
+  min-height:100vh;
+  padding-bottom:110px;
+}
+
+/* NAVBAR 1 */
+.top-nav{
+  width:100%;
+  background:#111827;
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  position:sticky;
+  top:0;
+  z-index:1000;
+  border-bottom:1px solid #1f2937;
+}
+
+.logo{
+  font-size:24px;
+  font-weight:bold;
+  letter-spacing:2px;
+  color:#00ff88;
+  text-shadow:0 0 10px rgba(0,255,136,0.4);
+}
+
+/* NAVBAR 2 */
+.second-nav{
+  width:100%;
+  background:#161d2e;
+  display:flex;
+  justify-content:space-around;
+  align-items:center;
+  padding:12px 5px;
+  position:sticky;
+  top:58px;
+  z-index:999;
+  border-bottom:1px solid #293548;
+}
+
+.nav-btn{
+  background:transparent;
+  border:none;
+  color:#d1d5db;
+  font-size:14px;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:4px;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.nav-btn:hover{
+  color:#00ff88;
+  transform:scale(1.05);
+}
+
+/* CONTENT */
+.content{
+  padding:20px;
+}
+
+.page-title{
+  font-size:28px;
+  margin-bottom:15px;
+  color:#00ff88;
+}
+
+.description{
+  color:#cbd5e1;
+  line-height:1.6;
+  margin-bottom:20px;
+}
+
+/* CARDS */
+.card{
+  background:#161d2e;
+  border:1px solid #263244;
+  border-radius:14px;
+  padding:16px;
+  margin-top:15px;
+  box-shadow:0 4px 10px rgba(0,0,0,0.3);
+  transition:0.3s;
+}
+
+.card:hover{
+  transform:translateY(-3px);
+  border-color:#00ff88;
+}
+
+.card-title{
+  font-size:18px;
+  margin-bottom:8px;
+  color:#00ff88;
+}
+
+.card-text{
+  color:#cbd5e1;
+  font-size:14px;
+}
+
+/* BOTTOM NAV */
+.bottom-nav{
+  position:fixed;
+  bottom:0;
+  left:0;
+  width:100%;
+  background:#111827;
+  padding:14px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  border-top:2px solid #1f2937;
+  z-index:1000;
+}
+
+/* BOTÃO GRANDE */
+.big-button{
+  width:92%;
+  padding:18px;
+  border:none;
+  border-radius:18px;
+  background:linear-gradient(135deg,#00c853,#00ff88);
+  color:white;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  transition:0.3s;
+  box-shadow:0 6px 20px rgba(0,255,136,0.3);
+}
+
+.big-button:hover{
+  transform:scale(1.02);
+}
+
+.big-button:active{
+  transform:scale(0.98);
+}
+
+/* RESPONSIVO */
+@media(max-width:480px){
+
+  .logo{
+    font-size:20px;
+  }
+
+  .nav-btn{
+    font-size:12px;
+  }
+
+  .big-button{
+    font-size:15px;
+    padding:16px;
+  }
+
+  .page-title{
+    font-size:24px;
+  }
+    }
