@@ -208,21 +208,33 @@ function App(){
 
       )}
 
-      {/* TERMS */}
+      {/* TERMOS (SÓ MELHOR VISUAL) */}
       {page === "terms" && (
 
-        <div className="p-5 text-gray-400 text-sm leading-6">
+        <div className="p-5 space-y-4">
 
-          <h1 className="text-emerald-400 font-bold mb-3">
-            Termos
+          <h1 className="text-emerald-400 font-bold text-lg">
+            Termos de Uso
           </h1>
 
-          Palpites análise e estatística de futebol. Sem garantias de resultados.
+          {[
+            "As previsões são baseadas em modelos estatísticos e não garantem resultados.",
+            "O futebol é imprevisível e pode mudar por fatores externos.",
+            "Nenhum resultado deve ser considerado garantido.",
+            "O utilizador assume total responsabilidade pelas decisões.",
+            "A plataforma não se responsabiliza por perdas financeiras."
+          ].map((t,i)=>(
+            <div
+              key={i}
+              className="bg-[#111827] border border-white/10 rounded-2xl p-4 text-sm text-gray-300 leading-7"
+            >
+              {t}
+            </div>
+          ))}
 
         </div>
 
       )}
-
       {/* BOTTOM CTA */}
       <div className="fixed bottom-0 left-0 w-full bg-[#0f172a] border-t border-white/10 p-4">
 
