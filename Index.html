@@ -191,18 +191,38 @@ function App(){
 
       )}
 
-      {/* SOCIAL */}
+      {/* COMUNIDADE (SÓ AQUI MELHORADO) */}
       {page === "social" && (
 
-        <div className="p-5">
+        <div className="p-5 space-y-3">
 
-          <h1 className="text-emerald-400 font-bold mb-3">
+          <h1 className="text-emerald-400 font-bold mb-4 text-lg">
             Comunidade
           </h1>
 
-          <div className="bg-[#111827] p-4 rounded-2xl border border-white/10">
-            🔥 Jogador: “Melhor app de previsões que já usei”
-          </div>
+          {messages.map((msg,i)=>(
+            <div
+              key={i}
+              className={`flex ${i % 2 === 0 ? "justify-start" : "justify-end"}`}
+            >
+
+              <div className={`max-w-[80%] px-4 py-3 rounded-2xl text-sm border border-white/10
+                ${i % 2 === 0
+                  ? "bg-[#111827] rounded-tl-none"
+                  : "bg-emerald-500/10 rounded-tr-none text-right"
+                }
+              `}>
+
+                <span className="block text-xs text-gray-400 mb-1">
+                  {users[i]}
+                </span>
+
+                {msg}
+
+              </div>
+
+            </div>
+          ))}
 
         </div>
 
