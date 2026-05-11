@@ -6,22 +6,10 @@
 
   <title>SoccerPro Analytics</title>
 
-  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
-
-  <!-- React -->
   <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
-
-  <!-- Babel -->
   <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
-
-  <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet"/>
-
-  <style>
-    body { font-family: Inter, sans-serif; }
-  </style>
 
 </head>
 
@@ -41,26 +29,15 @@ function App(){
 
     <div className="min-h-screen text-white pb-28">
 
-      {/* HEADER PROFISSIONAL */}
+      {/* HEADER */}
       <div className="sticky top-0 z-50 bg-[#0f172a]/90 backdrop-blur-xl border-b border-white/10">
 
         <div className="flex justify-center items-center py-4">
-
-          <div className="flex items-center gap-3">
-
-            <span className="text-xl">⚽</span>
-
-            <h1 className="text-xl font-bold tracking-[4px] text-emerald-400">
-              SOCCER-PRO
-            </h1>
-
-            <span className="text-xl">⚽</span>
-
-          </div>
-
+          <h1 className="text-xl font-bold tracking-[4px] text-emerald-400">
+            SOCCERPRO ⚽
+          </h1>
         </div>
 
-        {/* NAV */}
         <div className="flex justify-around py-3 border-t border-white/5">
 
           <button onClick={()=>setPage("home")} className="text-sm text-gray-300">Home</button>
@@ -71,166 +48,89 @@ function App(){
 
       </div>
 
-      {/* HOME DASHBOARD */}
+      {/* HOME */}
       {page === "home" && (
-
-        <div className="p-5 space-y-5">
-
-          {/* HERO */}
-          <div className="bg-gradient-to-br from-[#111827] to-[#0f172a] border border-white/10 rounded-3xl p-6">
-
-            <h1 className="text-2xl font-bold text-emerald-400 mb-2">
-              Calcula palpites com a soccer-pro
-            </h1>
-
-            <p className="text-gray-400 text-sm leading-6">
-              Palpites avançados de jogos, estatísticas e previsões baseadas em dados reais.
-            </p>
-
-          </div>
-
-          {/* CARDS */}
-          <div className="grid grid-cols-2 gap-3">
-
-            <div className="bg-[#111827] border border-white/10 rounded-2xl p-4">
-              <p className="text-gray-400 text-xs">Precisão</p>
-              <p className="text-emerald-400 text-xl font-bold">92%</p>
-            </div>
-
-            <div className="bg-[#111827] border border-white/10 rounded-2xl p-4">
-              <p className="text-gray-400 text-xs">Jogos</p>
-              <p className="text-emerald-400 text-xl font-bold">+10K</p>
-            </div>
-
-          </div>
-
-          {/* FEATURE */}
-          <div className="bg-[#111827] border border-white/10 rounded-3xl p-5">
-
-            <h2 className="text-lg font-semibold mb-2">
-              📊 Análise Inteligente
-            </h2>
-
-            <p className="text-gray-400 text-sm leading-6">
-              Modelos estatísticos para prever golos, vitória, escanteios e cartões.
-            </p>
-
-          </div>
-
+        <div className="p-5">
+          <h1 className="text-emerald-400 font-bold text-xl">Dashboard</h1>
         </div>
-
       )}
 
-      {/* CALCULAR */}
-      {page === "calc" && (
-
-        <div className="p-5 space-y-5">
-
-          <h1 className="text-xl font-bold text-emerald-400">
-            Máquina de previsão dos jogos
-          </h1>
-
-          <p className="text-gray-400 text-sm">
-            Insere as equipas para gerar palpites automáticas.
-          </p>
-
-          <input
-            id="teamA"
-            placeholder="Equipa Casa"
-            className="w-full p-4 rounded-2xl bg-[#111827] border border-white/10"
-          />
-
-          <input
-            id="teamB"
-            placeholder="Equipa Fora"
-            className="w-full p-4 rounded-2xl bg-[#111827] border border-white/10"
-          />
-
-          <button
-            onClick={async ()=>{
-
-              const teamA = document.getElementById("teamA").value;
-              const teamB = document.getElementById("teamB").value;
-
-              if(!teamA || !teamB){
-                alert("Preenche as equipas");
-                return;
-              }
-
-              try{
-
-                const res = await fetch(
-                  `https://sua-api.com/prediction?home=${teamA}&away=${teamB}`
-                );
-
-                const data = await res.json();
-
-                document.getElementById("result").innerHTML =
-                  JSON.stringify(data,null,2);
-
-              }catch(err){
-                document.getElementById("result").innerHTML =
-                  "Erro na API";
-              }
-
-            }}
-
-            className="w-full py-4 rounded-2xl bg-emerald-500 font-bold"
-          >
-           Calcular palpite do jogo 
-          </button>
-
-          <div
-            id="result"
-            className="bg-[#111827] border border-white/10 rounded-2xl p-5 text-gray-300 whitespace-pre-wrap"
-          >
-            Resultado da análise aparecerá aqui...
-          </div>
-
-        </div>
-
-      )}
-
-      {/* SOCIAL */}
+      {/* COMUNIDADE (15 PESSOAS) */}
       {page === "social" && (
 
-        <div className="p-5">
+        <div className="p-5 space-y-3">
 
           <h1 className="text-emerald-400 font-bold mb-3">
             Comunidade
           </h1>
 
-          <div className="bg-[#111827] p-4 rounded-2xl border border-white/10">
-            🔥 Jogador: “Melhor app de previsões que já usei”
-          </div>
+          {[
+            "João: Melhor site de previsões!",
+            "Ana: Muito preciso nos jogos!",
+            "Carlos: Já acertei vários palpites!",
+            "Miguel: Interface muito limpa!",
+            "Sofia: Gosto das análises!",
+            "Pedro: Top mesmo!",
+            "Lucas: Ajuda muito nas apostas!",
+            "Marcos: Sempre atualizado!",
+            "Rita: Excelente plataforma!",
+            "Tiago: Funciona muito bem!",
+            "Bruno: Melhor que outros sites!",
+            "David: Simples e eficaz!",
+            "Inês: Uso todos os dias!",
+            "Paulo: Previsões muito boas!",
+            "Andreia: Recomendo totalmente!"
+          ].map((msg,i)=>(
+            <div key={i} className="bg-[#111827] p-4 rounded-2xl border border-white/10">
+              {msg}
+            </div>
+          ))}
 
         </div>
 
       )}
 
-      {/* TERMS */}
+      {/* TERMOS (5 PARÁGRAFOS) */}
       {page === "terms" && (
 
-        <div className="p-5 text-gray-400 text-sm leading-6">
+        <div className="p-5 space-y-4 text-gray-300 text-sm leading-7">
 
-          <h1 className="text-emerald-400 font-bold mb-3">
-            Termos
+          <h1 className="text-emerald-400 font-bold text-lg mb-2">
+            Termos de Uso
           </h1>
 
-          Apenas cálculos de estatística de futebol. Sem garantias de resultados.
+          <p>
+            As previsões fornecidas por esta plataforma são baseadas em análises estatísticas e modelos probabilísticos. Não representam resultados garantidos.
+          </p>
+
+          <p>
+            O futebol é um desporto imprevisível, e variáveis externas podem influenciar diretamente o resultado de qualquer jogo.
+          </p>
+
+          <p>
+            Nenhuma previsão deve ser interpretada como certeza absoluta de vitória, empate ou derrota.
+          </p>
+
+          <p>
+            O utilizador deve entender que qualquer decisão baseada nestas análises é feita por sua própria responsabilidade.
+          </p>
+
+          <p>
+            Esta plataforma não assume responsabilidade por perdas financeiras ou decisões tomadas com base nas previsões apresentadas.
+          </p>
 
         </div>
 
       )}
 
-      {/* BOTTOM CTA */}
+      {/* BOTTOM */}
       <div className="fixed bottom-0 left-0 w-full bg-[#0f172a] border-t border-white/10 p-4">
 
         <button
           onClick={()=>setPage("calc")}
           className="w-full py-4 rounded-2xl bg-gradient-to-r from-emerald-500 to-green-400 font-bold"
         >
-          Calcular palpites do jogo
+          ⚽ Analisar Jogo
         </button>
 
       </div>
